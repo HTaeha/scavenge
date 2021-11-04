@@ -3,13 +3,43 @@ package coreators.scavenge.scavenge;
 
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
+import "scavenge/scavenge.proto";
 // this line is used by starport scaffolding # 1
+import "gogoproto/gogo.proto";
 
 option go_package = "github.com/coreators/scavenge/x/scavenge/types";
 
 // Query defines the gRPC querier service.
 service Query {
-    // this line is used by starport scaffolding # 2
+    // Queries a scavenge by index.
+	rpc Scavenge(QueryGetScavengeRequest) returns (QueryGetScavengeResponse) {
+		option (google.api.http).get = "/coreators/scavenge/scavenge/scavenge/{index}";
+	}
+
+	// Queries a list of scavenge items.
+	rpc ScavengeAll(QueryAllScavengeRequest) returns (QueryAllScavengeResponse) {
+		option (google.api.http).get = "/coreators/scavenge/scavenge/scavenge";
+	}
+
+// this line is used by starport scaffolding # 2
+}
+
+message QueryGetScavengeRequest {
+	  string index = 1;
+
+}
+
+message QueryGetScavengeResponse {
+	Scavenge scavenge = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllScavengeRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllScavengeResponse {
+	repeated Scavenge scavenge = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
 // this line is used by starport scaffolding # 3

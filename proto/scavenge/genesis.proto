@@ -1,11 +1,14 @@
 syntax = "proto3";
 package coreators.scavenge.scavenge;
 
+import "scavenge/scavenge.proto";
 // this line is used by starport scaffolding # genesis/proto/import
+import "gogoproto/gogo.proto";
 
 option go_package = "github.com/coreators/scavenge/x/scavenge/types";
 
 // GenesisState defines the scavenge module's genesis state.
 message GenesisState {
-    // this line is used by starport scaffolding # genesis/proto/state
+    repeated Scavenge scavengeList = 1 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
 }
