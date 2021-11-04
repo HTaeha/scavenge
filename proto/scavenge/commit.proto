@@ -1,0 +1,14 @@
+syntax = "proto3";
+package coreators.scavenge.scavenge;
+
+option go_package = "github.com/coreators/scavenge/x/scavenge/types";
+
+
+
+message Commit {
+  string index = 1; 
+  string solutionHash = 2; 
+  string solutionScavengerHash = 3; 
+  
+}
+
