@@ -28,6 +28,8 @@ export interface ScavengeCommit {
 
 export type ScavengeMsgCommitSolutionResponse = object;
 
+export type ScavengeMsgRevealSolutionResponse = object;
+
 export type ScavengeMsgSubmitScavengeResponse = object;
 
 export interface ScavengeQueryAllCommitResponse {

@@ -6,11 +6,13 @@ import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "
 import { Api } from "./rest";
 import { MsgSubmitScavenge } from "./types/scavenge/tx";
 import { MsgCommitSolution } from "./types/scavenge/tx";
+import { MsgRevealSolution } from "./types/scavenge/tx";
 
 
 const types = [
   ["/coreators.scavenge.scavenge.MsgSubmitScavenge", MsgSubmitScavenge],
   ["/coreators.scavenge.scavenge.MsgCommitSolution", MsgCommitSolution],
+  ["/coreators.scavenge.scavenge.MsgRevealSolution", MsgRevealSolution],
   
 ];
 export const MissingWalletError = new Error("wallet is required");
@@ -41,6 +43,7 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
     signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
     msgSubmitScavenge: (data: MsgSubmitScavenge): EncodeObject => ({ typeUrl: "/coreators.scavenge.scavenge.MsgSubmitScavenge", value: data }),
     msgCommitSolution: (data: MsgCommitSolution): EncodeObject => ({ typeUrl: "/coreators.scavenge.scavenge.MsgCommitSolution", value: data }),
+    msgRevealSolution: (data: MsgRevealSolution): EncodeObject => ({ typeUrl: "/coreators.scavenge.scavenge.MsgRevealSolution", value: data }),
     
   };
 };

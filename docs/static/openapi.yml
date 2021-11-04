@@ -12857,6 +12857,8 @@ definitions:
         type: string
   coreators.scavenge.scavenge.MsgCommitSolutionResponse:
     type: object
+  coreators.scavenge.scavenge.MsgRevealSolutionResponse:
+    type: object
   coreators.scavenge.scavenge.MsgSubmitScavengeResponse:
     type: object
   coreators.scavenge.scavenge.QueryAllCommitResponse:
