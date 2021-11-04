@@ -26,6 +26,8 @@ export interface ScavengeCommit {
   solutionScavengerHash?: string;
 }
 
+export type ScavengeMsgCommitSolutionResponse = object;
+
 export type ScavengeMsgSubmitScavengeResponse = object;
 
 export interface ScavengeQueryAllCommitResponse {
